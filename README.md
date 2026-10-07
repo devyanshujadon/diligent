@@ -93,8 +93,12 @@ The UI has no login. Judges can open whatever host you give them.
 
 ```bash
 npm run build
-npm start
+cp -r public .next/standalone/public
+cp -r .next/static .next/standalone/.next/static
+PORT=3000 node .next/standalone/server.js
 ```
+
+`output: "standalone"` is what the Docker image runs. `next start` does not serve that build.
 
 Docker:
 
